@@ -1,3 +1,3 @@
-module github.com/GoogleCloudPlatform/golang-samples/run/helloworld
+module github.com/klawtawr/golang-examples/test/helloworld
 
 go 1.13
