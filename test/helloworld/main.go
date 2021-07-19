@@ -3,18 +3,15 @@ package main
 //https://freshman.tech/web-development-with-go/
 
 import (
-	"fmt"
+	//	"fmt"
 	"log"
 	"net/http"
 	"os"
+	//	"os"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	name := os.Getenv("NAME")
-	if name == "" {
-		name = "Kunal Lawtawar"
-	}
-	fmt.Fprintf(w, "Hello from %s!\n", name)
+	http.Redirect(w, r, "http://www.kslawtawar.page", 301)
 }
 
 func main() {
