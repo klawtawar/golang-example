@@ -1,4 +1,5 @@
 package main
+
 //https://freshman.tech/web-development-with-go/
 
 import (
@@ -7,6 +8,14 @@ import (
 	"net/http"
 	"os"
 )
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	name := os.Getenv("NAME")
+	if name == "" {
+		name = "Kunal Lawtawar"
+	}
+	fmt.Fprintf(w, "Hello from %s!\n", name)
+}
 
 func main() {
 	log.Print("starting server...")
@@ -24,12 +33,4 @@ func main() {
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
-}
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	name := os.Getenv("NAME")
-	if name == "" {
-		name = "Kunal Lawtawar"
-	}
-	fmt.Fprintf(w, "Hello from %s!\n", name)
 }
